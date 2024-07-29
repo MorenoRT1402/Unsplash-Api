@@ -24,6 +24,8 @@ h1 {
   display: flex;
   flex-direction: row;
   gap: .5rem; }
+  .searchbar > button {
+    padding: 0; }
   .searchbar > input {
     border: 0;
     outline: none; }

@@ -24,6 +24,10 @@ h1{
     flex-direction: row;
     gap: .5rem;
 
+    &>button {
+        padding: 0;
+    }
+
     &>input{
         border: 0;
         outline: none;
