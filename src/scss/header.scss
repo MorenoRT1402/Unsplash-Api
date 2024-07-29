@@ -1,0 +1,18 @@
+header {
+    width: 100%;
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+h1{
+    width: 100%;
+    color: $theme-light;
+    font-size: 16px;
+}
+
+.searchbar{
+    width: 100%;
+    border: 1px solid $theme-light;
+    border-radius: 24px;
+}
