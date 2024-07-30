@@ -1,29 +1,38 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getPhotosByQuery, getPhotosEndpoint, getRandomPhotosEndpoint } from "../../config/api_endpoints";
-import { useFetch } from "../../hooks/useFetch";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { getRandomPhotosEndpoint } from "../../config/api_endpoints"
 
 const initialState = {
+    images: [],
+    status: 'idle',
+    error: null
+}
 
-};
+export const getRandom = createAsyncThunk(
+    'search/getRandom',
+    async () => {
+        const res = await fetch(getRandomPhotosEndpoint);
+        return await res.json();
+    }
+)
 
-export const searchSlice = createSlice({
+const searchSlice = createSlice({
     name: 'search',
     initialState,
-    reducers: {
-        getAll: createAsyncThunk(
-            async () => {
-                const { data } = useFetch(getPhotosEndpoint)
-            }
-        ),
-        getRandom: createAsyncThunk(
-            async () => {
-                const { data } = useFetch(getRandomPhotosEndpoint);
-            }
-        ),
-        getByQuery: createAsyncThunk(
-            async query => {
-                const { data } = useFetch(getPhotosByQuery(query));
-            }
-        )
-    }
+    reducers: {},
+    extraReducers: builder => {
+        builder.addCase(getRandom.pending, state => {
+            state.status = 'loading';
+        })
+        builder.addCase(getRandom.fulfilled, (state, action) => {
+            state.status = 'suceed';
+            state.images = action.payload;
+        })
+        builder.addCase(getRandom.rejected, (state, action) => {
+            state.status = 'failed';
+            state.error = action.error.message;
+        })
+            
+    },
 })
+
+export default searchSlice.actions;
