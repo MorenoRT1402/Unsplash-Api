@@ -1,12 +1,16 @@
 * {
   font-family: "Inria Sans", sans-serif; }
 
+body {
+  background-color: #394D3B; }
+
 header {
   width: 100%;
   padding: .5rem;
   display: flex;
   flex-direction: row;
-  align-items: center; }
+  align-items: center;
+  background-color: white; }
 
 h1 {
   width: 100%;
