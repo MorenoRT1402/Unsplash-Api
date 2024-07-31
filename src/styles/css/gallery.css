@@ -1,8 +1,35 @@
 .gallery {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 80%;
-  height: 75%;
+  height: 100%;
+  gap: 1rem;
+  padding: .5rem;
   border-radius: 8px;
   background-color: white; }
+  .gallery > h2 {
+    text-align: center; }
+  .gallery > select {
+    width: 30%;
+    height: 6%; }
+  .gallery__images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    width: 90%; }
+    .gallery__images > * {
+      display: flex;
+      flex-direction: column;
+      width: 30%; }
+      .gallery__images > * > section {
+        display: flex;
+        flex-direction: row; }
+        .gallery__images > * > section > button {
+          width: 100%;
+          padding: 0; }
+          .gallery__images > * > section > button > img {
+            width: 100%;
+            height: 100%; }
 
 /*# sourceMappingURL=gallery.css.map */

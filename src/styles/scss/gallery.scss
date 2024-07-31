@@ -1,7 +1,48 @@
 .gallery{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 80%;
-    height: 75%;
+    height: 100%;
+    gap: 1rem;
+    padding: .5rem;
     border-radius: 8px;
     background-color: white;
+
+    &>h2{
+        text-align: center;
+    }
+
+    &>select{
+        width: 30%;
+        height: 6%;
+    }
+
+    &__images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .8rem;
+        width: 90%;
+
+        &>*{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+
+            &>section{
+                display: flex;
+                flex-direction: row;
+
+                &>button{
+                    width: 100%;
+                    padding: 0;
+
+                    &>img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
 }

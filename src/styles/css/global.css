@@ -4,4 +4,10 @@
 body {
   background-color: #394D3B; }
 
+footer {
+  position: relative;
+  bottom: 0;
+  margin-top: 3rem;
+  background-color: #38CD4F; }
+
 /*# sourceMappingURL=global.css.map */

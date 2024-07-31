@@ -1,6 +1,9 @@
-$theme-light: #38CD4F;
-$theme-medium: #38AA4F;
-$theme-dark: #394D3B;
+$theme-colors: (
+  x-light: #BBE7A7,
+  light: #38CD4F,
+  medium: #38AA4F,
+  dark: #394D3B
+);
 
 $font: "Inria Sans", sans-serif;
 
@@ -9,5 +12,12 @@ $font: "Inria Sans", sans-serif;
 }
 
 body{
-    background-color: $theme-dark;
+    background-color: map-get($theme-colors, dark);
+}
+
+footer{
+    position: relative;
+    bottom: 0;
+    margin-top: 3rem;
+    background-color: #38CD4F;
 }

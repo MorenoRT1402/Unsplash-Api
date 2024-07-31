@@ -1,8 +1,7 @@
-# React + Vite
+# Unsplash API Proyect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project developed in React with Redux and React-Router-Dom that consumes the Unsplash API to create a photo gallery.
 
-Currently, two official plugins are available:
+You can also save your favorite photos, edit them and even download them.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Design in Figma](https://www.figma.com/design/4SZPZGnjsl2na1AcfJSySw/Oxygen-Unsplash?node-id=1-650&t=8mBiYjZCYWNMmoII-1)

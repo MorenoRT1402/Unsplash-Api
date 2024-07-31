@@ -1,3 +1,5 @@
+$theme-light: map-get($theme-colors, light);
+
 header {
     width: 100%;
     padding: .5rem;
