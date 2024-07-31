@@ -34,6 +34,35 @@ h1 {
     border: 0;
     outline: none; }
 
+.main-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; }
+  .main-body__path-buttons {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; }
+    .main-body__path-buttons > * {
+      width: 20%;
+      height: 50%;
+      border-radius: 12px;
+      padding: 0;
+      background-color: #38CD4F;
+      color: white;
+      text-align: center;
+      font-size: medium; }
+
+.gallery {
+  display: flex;
+  width: 80%;
+  height: 75%;
+  border-radius: 8px;
+  background-color: white; }
+
 * {
   box-sizing: border-box;
   margin: 0;
