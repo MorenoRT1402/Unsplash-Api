@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
-import { store } from './store/store.js'
+import { store } from './features/store.js'
 
-import './css/index.css'
-import './css/styles.css'
+import './styles/css/index.css'
+import './styles/css/styles.css'
 import { Header } from './components/Header.jsx'
 import { MainBody } from './components/MainBody.jsx'
 
