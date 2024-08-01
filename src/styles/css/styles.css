@@ -73,6 +73,8 @@ h1 {
   padding: .5rem;
   border-radius: 8px;
   background-color: white; }
+  .gallery.--transparent {
+    background-color: transparent; }
   .gallery > h2 {
     text-align: center; }
   .gallery > select {
@@ -83,17 +85,20 @@ h1 {
     flex-wrap: wrap;
     gap: .8rem;
     width: 90%; }
-    .gallery__images > * {
+    .gallery__images > article {
       display: flex;
       flex-direction: column;
+      justify-content: end;
+      gap: .6rem;
       width: 30%; }
-      .gallery__images > * > section {
+      .gallery__images > article > section {
         display: flex;
         flex-direction: row; }
-        .gallery__images > * > section > button {
+        .gallery__images > article > section > button {
           width: 100%;
-          padding: 0; }
-          .gallery__images > * > section > button > img {
+          padding: 0;
+          background-color: transparent; }
+          .gallery__images > article > section > button > img {
             width: 100%;
             height: 100%; }
 

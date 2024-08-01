@@ -27,8 +27,7 @@ export const Gallery = () => {
     }, [dispatch, searchStatus])
 
     const chargeImages = () => {
-        console.log(images);
-        return images.map(img => <GalleryImg img={img.urls.thumb} key={img.id}></GalleryImg>)
+        return allImages.map(img => <GalleryImg img={img.urls.thumb} key={img.id} icons={icons}></GalleryImg>)
     }
 
     return (
@@ -42,11 +41,6 @@ export const Gallery = () => {
             </select>
             <section className="gallery__images">
                 {chargeImages()}
-                <GalleryImg img={`${imagesPath}/icon.png`} icons={icons} />
-                <GalleryImg img={`${imagesPath}/icon.png`} icons={icons} />
-                <GalleryImg img={`${imagesPath}/icon.png`} icons={icons} />
-                <GalleryImg img={`${imagesPath}/icon.png`} icons={icons} />
-
             </section>
         </section>
     )

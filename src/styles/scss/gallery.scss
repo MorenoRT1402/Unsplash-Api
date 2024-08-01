@@ -9,6 +9,10 @@
     border-radius: 8px;
     background-color: white;
 
+    &.--transparent{
+        background-color: transparent;
+    }
+
     &>h2{
         text-align: center;
     }
@@ -24,9 +28,11 @@
         gap: .8rem;
         width: 90%;
 
-        &>*{
+        &>article{
             display: flex;
             flex-direction: column;
+            justify-content: end;
+            gap: .6rem;
             width: 30%;
 
             &>section{
@@ -36,6 +42,7 @@
                 &>button{
                     width: 100%;
                     padding: 0;
+                    background-color: transparent;
 
                     &>img{
                         width: 100%;
