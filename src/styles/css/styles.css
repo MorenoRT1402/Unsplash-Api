@@ -104,7 +104,9 @@ h1 {
   text-align: center;
   font-size: medium; }
   .path-button.--selected {
-    background-color: #38AA4F; }
+    background-color: #38AA4F;
+    pointer-events: none;
+    opacity: 0.8; }
 
 * {
   box-sizing: border-box;

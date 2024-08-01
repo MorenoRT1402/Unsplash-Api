@@ -23,3 +23,5 @@ export const favouritesSlice = createSlice({
         }
     }
 })
+
+export const { add, remove, modifyDescription } = favouritesSlice.actions;
