@@ -22,6 +22,7 @@ export const HomeGallery = () => {
     }, [dispatch, searchStatus])
 
     const chargeImages = () => {
+        if(allImages == null) return null;
         return allImages.map(img => <GalleryImg img={img.urls.thumb} key={img.id} icons={icons}></GalleryImg>)
     }
 

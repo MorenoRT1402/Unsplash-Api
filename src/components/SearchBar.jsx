@@ -1,8 +1,16 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getByQueryThunk } from "../features/search/searchThunk";
+
 export const SearchBar = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
 
     const handleSubmit = event => {
         event.preventDefault();
+        navigate('/');
         const query = event.target.search.value;
+        dispatch(getByQueryThunk(query));
         console.log(query);
     }
 

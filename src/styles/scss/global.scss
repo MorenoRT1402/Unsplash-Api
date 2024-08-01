@@ -19,5 +19,7 @@ footer{
     position: relative;
     bottom: 0;
     margin-top: 3rem;
-    background-color: #38CD4F;
+    padding: .7rem;
+    background-color: white;
+    color: map-get($theme-colors, light);
 }

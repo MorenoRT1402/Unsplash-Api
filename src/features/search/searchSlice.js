@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getRandomThunk } from "./searchThunk";
+import { getByQueryThunk, getRandomThunk } from "./searchThunk";
 
 const initialState = {
     images: [],
@@ -20,6 +20,18 @@ export const searchSlice = createSlice({
             state.images = action.payload;
         })
         .addCase(getRandomThunk.rejected, (state, action) => {
+            state.status = 'rejected';
+            state.error = action.error.message;
+        })
+
+        builder.addCase(getByQueryThunk.pending, state => {
+            state.status = 'pending';
+        })
+        .addCase(getByQueryThunk.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
+            state.images = action.payload;
+        })
+        .addCase(getByQueryThunk.rejected, (state, action) => {
             state.status = 'rejected';
             state.error = action.error.message;
         })
