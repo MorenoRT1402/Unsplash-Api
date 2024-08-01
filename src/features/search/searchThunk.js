@@ -16,7 +16,7 @@ export const getRandomThunk = createAsyncThunk(
     'search/getRandom',
     async () => {
         try {
-            getData(getRandomPhotosEndpoint());
+            return getData(getRandomPhotosEndpoint());
         }
         catch (error) {
             return null;
@@ -28,7 +28,7 @@ export const getByQueryThunk = createAsyncThunk(
     'search/getByQuery',
     async query => {
         try {
-            getData(getPhotosByQuery(query));
+            return getData(getPhotosByQuery(query));
         }
         catch (error) {
             return null;
