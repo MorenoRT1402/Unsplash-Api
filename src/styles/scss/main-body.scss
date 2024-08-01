@@ -12,15 +12,5 @@
         align-items: center;
         gap: 2rem;
         margin-block: 1.5rem;
-
-        &>*{
-            width: 20%;
-            border-radius: 12px;
-            padding: 0;
-            background-color: $theme-light;
-            color: white;
-            text-align: center;
-            font-size: medium;
-        }
     }
 }

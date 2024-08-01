@@ -1,0 +1,13 @@
+.path-button{
+    width: 20%;
+    border-radius: 12px;
+    padding: 0;
+    background-color: $theme-light;
+    color: white;
+    text-align: center;
+    font-size: medium;
+
+    &.--selected{
+        background-color: map-get($map: $theme-colors, $key: medium);
+    }
+}

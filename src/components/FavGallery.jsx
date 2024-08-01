@@ -1,33 +1,13 @@
-import { useEffect, useState } from "react"
-import { GalleryImg } from "./GalleryImg"
-import { useDispatch, useSelector } from "react-redux"
-import { getRandomThunk } from "../features/search/searchThunk";
-
 export const FavGallery = () => {
-    const dispatch = useDispatch();
-    const allImages = useSelector(state => state.search.images);
-    const searchStatus = useSelector(state => state.search.status);
-    const searchError = useSelector(state => state.search.error);
-
-    const [images, setImages] = useState(allImages);
-    
     const imagesPath = "../res/images"
     const icons = {
-        addFav: `${imagesPath}/Star.png`,
-        info: `${imagesPath}/Info.png`,
-        download: `${imagesPath}/Download.png`
+        addFav: `${imagesPath}/Star(1).png`,
+        info: `${imagesPath}/Info(1).png`,
+        download: `${imagesPath}/Download(1).png`
     }
 
-    useEffect(() => {
-        console.log(searchStatus);
-        if(searchStatus === 'idle'){
-            dispatch(getRandomThunk());
-            setImages(allImages);
-        }
-    }, [dispatch, searchStatus])
-
     const chargeImages = () => {
-        return allImages.map(img => <GalleryImg img={img.urls.thumb} key={img.id} icons={icons}></GalleryImg>)
+//        return allImages.map(img => <GalleryImg img={img.urls.thumb} key={img.id} icons={icons}></GalleryImg>)
     }
 
     return (

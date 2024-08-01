@@ -55,14 +55,6 @@ h1 {
     align-items: center;
     gap: 2rem;
     margin-block: 1.5rem; }
-    .main-body__path-buttons > * {
-      width: 20%;
-      border-radius: 12px;
-      padding: 0;
-      background-color: #38CD4F;
-      color: white;
-      text-align: center;
-      font-size: medium; }
 
 .gallery {
   display: flex;
@@ -102,6 +94,17 @@ h1 {
           .gallery__images > article > section > button > img {
             width: 100%;
             height: 100%; }
+
+.path-button {
+  width: 20%;
+  border-radius: 12px;
+  padding: 0;
+  background-color: #38CD4F;
+  color: white;
+  text-align: center;
+  font-size: medium; }
+  .path-button.--selected {
+    background-color: #38AA4F; }
 
 * {
   box-sizing: border-box;
