@@ -9,9 +9,17 @@ export const HomeGallery = () => {
     const searchStatus = useSelector(state => state.search.status);
     
     const imagesPath = "../res/images";
-    const testImage = `${imagesPath}/searchmeme.png`;
+    const testImage = {
+        id: 'local-test-image',
+        urls:{
+            thumb: `${imagesPath}/searchmeme.png`
+        }
+    };
     const icons = {
-        addFav: `${imagesPath}/Star.png`,
+        addFav: {
+            default: `${imagesPath}/Star.png`,
+            filled: `${imagesPath}/star_filled.png`
+        },
         info: `${imagesPath}/Info.png`,
         download: `${imagesPath}/Download.png`
     }
@@ -24,7 +32,7 @@ export const HomeGallery = () => {
 
     const chargeImages = () => {
         if(allImages == null) return <GalleryImg img={testImage} icons={icons}></GalleryImg>;
-        return allImages.map(img => <GalleryImg img={img.urls.thumb} key={img.id} icons={icons}></GalleryImg>)
+        return allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>)
     }
 
     return (

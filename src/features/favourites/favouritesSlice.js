@@ -12,7 +12,7 @@ export const favouritesSlice = createSlice({
             state.images.push(action.payload);
         },
         remove: (state, action) => {
-            state.images = state.images.filter(img => img.id != action.payload);
+            state.images = state.images.filter(img => img.id !== action.payload.id);
         },
         modifyDescription: (state, action) => {
             const { id, newDescription } = action.payload;

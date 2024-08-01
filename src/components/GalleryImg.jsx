@@ -1,12 +1,28 @@
 /* eslint-disable react/prop-types */
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { ImageButton } from "./ImageButton"
+import { add, remove } from "../features/favourites/favouritesSlice";
+import { useEffect, useState } from "react";
 
 export const GalleryImg = ({img, icons}) => {
     const dispatch = useDispatch();
+    const favouritesImages = useSelector(state => state.favourites.images);
+    const [addToFavImage, setAddToFavImage] = useState(icons.addFav.default);
+
+    const isInFavourites = favouritesImages.some(favImg => favImg.id === img.id);
+
+    useEffect(() => {
+        setAddToFavImage(getAddToFavImage);
+    }, [favouritesImages])
+
+    const getAddToFavImage = () => {
+        const addFav = icons.addFav;
+        return isInFavourites ? addFav.filled : addFav.default;
+    }
 
     const addToFavourites = () => {
-        dispatch()
+        const action = isInFavourites ? remove : add;
+        dispatch(action(img));
     }
 
     const showInfo = () => {
@@ -19,9 +35,9 @@ export const GalleryImg = ({img, icons}) => {
 
     return (
         <article>
-            <img src={img} alt="" />
+            <img src={img.urls.thumb} alt="" />
             <section>
-                <ImageButton src={icons.addFav}/>
+                <ImageButton src={addToFavImage} onClick={addToFavourites}/>
                 <ImageButton src={icons.info}/>
                 <ImageButton src={icons.download}/>
             </section>
