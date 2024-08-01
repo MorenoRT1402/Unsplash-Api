@@ -11,8 +11,7 @@ export const SearchBar = () => {
         event.preventDefault();
         navigate(routes.home);
         const query = event.target.search.value;
-        console.log(query);
-        if(query != '')
+        if(query.length > 0)
             dispatch(getByQueryThunk(query));
         else
             dispatch(getRandomThunk);
