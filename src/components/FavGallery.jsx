@@ -1,13 +1,21 @@
+import { useSelector } from "react-redux";
+import { GalleryImg } from "./GalleryImg";
+
 export const FavGallery = () => {
+    const allImages = useSelector(state => state.favourites.images);
     const imagesPath = "../res/images"
+
     const icons = {
-        addFav: `${imagesPath}/Star(1).png`,
-        info: `${imagesPath}/Info(1).png`,
-        download: `${imagesPath}/Download(1).png`
+        addFav: {
+            default: `${imagesPath}/Star.jpg`,
+            filled: `${imagesPath}/star_filled.jpg`
+        },
+        info: `${imagesPath}/Info.jpg`,
+        download: `${imagesPath}/download.jpg`
     }
 
     const chargeImages = () => {
-//        return allImages.map(img => <GalleryImg img={img.urls.thumb} key={img.id} icons={icons}></GalleryImg>)
+        return allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>)
     }
 
     return (
