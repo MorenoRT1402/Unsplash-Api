@@ -8,7 +8,8 @@ export const HomeGallery = () => {
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
     
-    const imagesPath = "../res/images"
+    const imagesPath = "../res/images";
+    const testImage = `${imagesPath}/searchmeme.png`;
     const icons = {
         addFav: `${imagesPath}/Star.png`,
         info: `${imagesPath}/Info.png`,
@@ -22,7 +23,7 @@ export const HomeGallery = () => {
     }, [dispatch, searchStatus])
 
     const chargeImages = () => {
-        if(allImages == null) return null;
+        if(allImages == null) return <GalleryImg img={testImage} icons={icons}></GalleryImg>;
         return allImages.map(img => <GalleryImg img={img.urls.thumb} key={img.id} icons={icons}></GalleryImg>)
     }
 

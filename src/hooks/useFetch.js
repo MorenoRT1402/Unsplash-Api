@@ -5,13 +5,24 @@ export const useFetch = (url, options) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
+    const getDataFromAPI = async () => {
         setLoading(true);
-        fetch(url, options)
-        .then(response => response.json())
-        .then(data => setData(data))
-        .catch(err => setError(err))
-        .finally(setLoading(false));
+        try {
+            const res = await fetch(url, options);
+            if (res.ok) {
+                const data = await res.json();
+                setData(data);
+            }
+            setError('response is not ok');
+        }
+        catch (error) {
+            setError(error);
+        }
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        getDataFromAPI();
     }, []);
 
     return { data, loading, error };
