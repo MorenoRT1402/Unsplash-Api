@@ -1,11 +1,12 @@
 .main-body {
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
 
     &__path-buttons {
         width: 100%;
-        height: 10%;
+        height: 3rem;
         display: flex;
         justify-content: center;
         align-items: center;

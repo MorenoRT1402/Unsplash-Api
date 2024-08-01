@@ -13,18 +13,16 @@ export const searchSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(getRandomThunk.pending, state => {
-            state.status = 'loading';
+            state.status = 'pending';
         })
-        builder.addCase(getRandomThunk.fulfilled, (state, action) => {
-            state.status = 'idle';
+        .addCase(getRandomThunk.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
             state.images = action.payload;
         })
-        builder.addCase(getRandomThunk.rejected, (state, action) => {
-            state.status = 'failed';
+        .addCase(getRandomThunk.rejected, (state, action) => {
+            state.status = 'rejected';
             state.error = action.error.message;
         })
 
     },
 })
-
-export const { getRandom } = searchSlice.actions;

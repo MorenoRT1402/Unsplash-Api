@@ -5,9 +5,11 @@ export const getRandomThunk = createAsyncThunk(
     'search/getRandom',
     async () => {
         try {
-            const res = await fetch(getRandomPhotosEndpoint);
+            const res = await fetch(getRandomPhotosEndpoint());
             if (res.ok) {
-                return await res.json();
+                const data = await res.json();
+                console.log(data);
+                return data;
             }
             return null
         }
