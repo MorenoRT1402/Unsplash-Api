@@ -3,7 +3,7 @@ import { GalleryImg } from "./GalleryImg"
 import { useDispatch, useSelector } from "react-redux"
 import { getRandomThunk } from "../features/search/searchThunk";
 
-export const Gallery = () => {
+export const FavGallery = () => {
     const dispatch = useDispatch();
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
