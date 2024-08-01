@@ -18,7 +18,6 @@ export const Gallery = () => {
     useEffect(() => {
         if(searchStatus === 'idle'){
             dispatch(getRandomThunk());
-            setImages(allImages);
         }
     }, [dispatch, searchStatus])
 
