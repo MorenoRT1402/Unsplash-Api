@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { HomeGallery } from "./HomeGallery"
 import { FavGallery } from "./FavGallery"
+import { routes } from "../config/routes"
 
 export const MainBody = () => {
 
@@ -11,8 +12,8 @@ export const MainBody = () => {
                 <button>Favs</button>
             </section>
             <Routes>
-                <Route path="/" element={<HomeGallery />}></Route>
-                <Route path="/gallery" element={<FavGallery />}></Route>
+                <Route path={routes.home} element={<HomeGallery />}></Route>
+                <Route path={routes.gallery} element={<FavGallery />}></Route>
             </Routes>
         </main>
     )

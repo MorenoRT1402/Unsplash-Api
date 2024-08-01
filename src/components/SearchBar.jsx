@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getByQueryThunk, getRandomThunk } from "../features/search/searchThunk";
+import { routes } from "../config/routes";
 
 export const SearchBar = () => {
     const navigate = useNavigate()
@@ -8,7 +9,7 @@ export const SearchBar = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        navigate('/');
+        navigate(routes.home);
         const query = event.target.search.value;
         console.log(query);
         if(query != '')
