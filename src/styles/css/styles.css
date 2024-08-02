@@ -111,6 +111,10 @@ h1 {
 .juNRvt {
   margin: 0 auto; }
 
+.searchbar {
+  width: 80%;
+  max-width: 20rem; }
+
 * {
   box-sizing: border-box;
   margin: 0;

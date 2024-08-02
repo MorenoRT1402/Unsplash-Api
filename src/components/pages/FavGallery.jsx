@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 //import { usePersistence } from "../../hooks/usePersistence";
 import { set } from "../../features/favourites/favouritesSlice";
 import { getFromLocalStorage, saveInLocalStorage } from "../../app/utils/persistence";
+import { SearchBar } from "../SearchBar";
 
 export const FavGallery = () => {
     const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export const FavGallery = () => {
 
     useEffect(() => {
         saveInLocalStorage(imagesKey, allImages);
+        console.log(getFromLocalStorage('images'));
     }, [allImages])
 
     const handleChange = e => {
@@ -47,13 +49,13 @@ export const FavGallery = () => {
             case sortedOptions.addDate:
                 sorted.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
                 break;
-            case 'width':
+            case sortedOptions.width:
                 sorted.sort((a, b) => b.width - a.width);
                 break;
-            case 'height':
+            case sortedOptions.height:
                 sorted.sort((a, b) => b.height - a.height);
                 break;
-            case 'likes':
+            case sortedOptions.likes:
                 sorted.sort((a, b) => b.likes - a.likes);
                 break;
             default:
@@ -66,6 +68,7 @@ export const FavGallery = () => {
     return (
         <section className="gallery">
             <h2>My Photos</h2>
+            <SearchBar className="searchbar" placeholder="Busca en tus imágenes"/>
             <select name="order-select" id="order-select" onChange={handleChange}>
                 <option value={sortedOptions.addDate}>Añadido</option>
                 <option value={sortedOptions.width}>Ancho</option>

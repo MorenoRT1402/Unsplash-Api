@@ -5,8 +5,8 @@ const initialState = {
 }
 
 const getImageWithDate = (img, dateAdded = new Date()) => {
-    img.importDate = dateAdded;
-    return img;
+    const newImg = {...img, importDate: dateAdded.getTime()};
+    return newImg;
 }
 
 const addMultiple = (state, data) => {
