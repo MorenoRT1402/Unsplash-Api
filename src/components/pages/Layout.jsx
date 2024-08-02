@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import { routes } from "../../config/routes"
+import { routes } from "../../app/config/routes"
 import { Header } from "../Header"
 import { PathButton } from "../PathButton"
 import { Footer } from "../Footer"

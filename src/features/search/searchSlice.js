@@ -1,33 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getByQueryThunk, getRandomThunk } from "./searchThunk";
+import { promiseStatus } from "../../app/variables/async";
 
 const initialState = {
     images: [],
-    status: 'idle',
+    status: promiseStatus.idle,
     error: null
 }
 
-const pending = state => {
-    state.status = 'pending';
-}
-
 const fulfilled = (state, action) => {
-    state.status = 'fulfilled';
-    state.images = action.payload;
+    state.status = promiseStatus.fulfilled;
+    state.images = action.payload == null ? [] : action.payload
 }
 
 const rejected = (state, action) => {
-    state.status = 'rejected';
+    state.status = promiseStatus.rejected;
     state.error = action.error.message;
 }
 
 export const searchSlice = createSlice({
     name: 'search',
     initialState,
-    reducers: {},
+    reducers: {
+    },
     extraReducers: builder => {
         builder.addCase(getRandomThunk.pending, state => {
-            pending(state);
+            state.status = promiseStatus.pending;
         })
         .addCase(getRandomThunk.fulfilled, (state, action) => {
             fulfilled(state, action);
@@ -37,10 +35,10 @@ export const searchSlice = createSlice({
         })
 
         builder.addCase(getByQueryThunk.pending, state => {
-            pending(state);
+            state.status = promiseStatus.pending;
         })
         .addCase(getByQueryThunk.fulfilled, (state, action) => {
-            fulfilled(state, action);
+            fulfilled(state,action);
         })
         .addCase(getByQueryThunk.rejected, (state, action) => {
             rejected(state, action);

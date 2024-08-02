@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getByQueryThunk, getRandomThunk } from "../features/search/searchThunk";
-import { routes } from "../config/routes";
-import { imagesPath } from "../config/paths";
+import { routes } from "../app/config/routes";
+import { imagesPath } from "../app/config/paths";
 
 export const SearchBar = () => {
     const navigate = useNavigate()

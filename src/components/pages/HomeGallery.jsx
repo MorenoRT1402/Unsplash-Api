@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import { GalleryImg } from "../GalleryImg"
 import { useDispatch, useSelector } from "react-redux"
 import { getRandomThunk } from "../../features/search/searchThunk";
-import { imagesPath } from "../../config/paths";
+import { imagesPath } from "../../app/config/paths";
+import { promiseStatus } from "../../app/variables/async";
 
 export const HomeGallery = () => {
     const dispatch = useDispatch();
@@ -22,20 +23,19 @@ export const HomeGallery = () => {
 
     useEffect(() => {
         switch (searchStatus) {
-            case 'idle':{
+            case promiseStatus.idle:{
                 dispatch(getRandomThunk());
                 break;
             }
-            case 'pending':{
+            case promiseStatus.pending:{
                 setIsLoading(true);
                 break;
             }
-            case 'fulfilled':{
+            case promiseStatus.fulfilled:{
                 setIsLoading(false);
                 break;
             }
-            case 'rejected': {
-                setIsLoading(true);
+            case promiseStatus.rejected: {
                 console.log('Toast: rejected');
                 break;
             }

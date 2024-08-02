@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { GalleryImg } from "../GalleryImg";
-import { imagesPath } from "../../config/paths";
+import { imagesPath } from "../../app/config/paths";
 
 export const FavGallery = () => {
     const allImages = useSelector(state => state.favourites.images);
