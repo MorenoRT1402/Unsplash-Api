@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { getRandomThunk } from "../../features/search/searchThunk";
 import { imagesPath } from "../../app/config/paths";
 import { promiseStatus } from "../../app/variables/async";
+import { toast } from "react-toastify";
 
 export const HomeGallery = () => {
     const dispatch = useDispatch();
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
+    const searchError = useSelector(state => state.search.error);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -36,7 +38,8 @@ export const HomeGallery = () => {
                 break;
             }
             case promiseStatus.rejected: {
-                console.log('Toast: rejected');
+                toast('No se ha podido obtener la información');
+                console.log(searchError);
                 break;
             }
         }

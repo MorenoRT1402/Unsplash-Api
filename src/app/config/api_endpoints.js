@@ -14,7 +14,7 @@ const endpointWithAuth = endpoint => `${apiUrl}${endpoint}/?${clientIDPart}`;
 export const getPhotosEndpoint = endpointWithAuth(endpointsWords.photos);
 
 const randomPhotosEndpoint = `${endpointsWords.photos}/${endpointsWords.random}`;
-export const getRandomPhotosEndpoint = (count = 3) => `${endpointWithAuth(randomPhotosEndpoint)}&count=${count}`;
+export const getRandomPhotosEndpoint = (count = 10) => `${endpointWithAuth(randomPhotosEndpoint)}&count=${count}`;
 
 export const getPhotosByQuery = query => {
     const endpoint = `${endpointsWords.search}/${endpointsWords.photos}`;
