@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { getRandomThunk } from "../../features/search/searchThunk";
 import { imagesPath } from "../../app/config/paths";
 import { promiseStatus } from "../../app/variables/async";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import { Flip, toast, ToastContainer } from "react-toastify";
+import { BallTriangle } from 'react-loader-spinner';
 
 export const HomeGallery = () => {
     const dispatch = useDispatch();
@@ -26,17 +27,6 @@ export const HomeGallery = () => {
     useEffect(() => {
         switch (searchStatus) {
             case promiseStatus.idle:{
-                toast('🦄 Wow so easy!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                    transition: Bounce,
-                    });
                 dispatch(getRandomThunk());
                 break;
             }
@@ -49,24 +39,47 @@ export const HomeGallery = () => {
                 break;
             }
             case promiseStatus.rejected: {
-                toast('No se ha podido obtener la información');
+                toast.error('No se ha podido obtener la información', {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Flip
+                    });
                 console.log(searchError);
                 break;
             }
         }
     }, [allImages, dispatch, searchStatus])
 
+ const loadingSpinner = () => {
+    return (
+        <BallTriangle className="loading-spinner"
+            height={100}
+            width={100}
+            radius={5}
+            color="#4fa94d"
+            ariaLabel="ball-triangle-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+        />
+    )
+}
+
     return (
         <section className="gallery --transparent">
             <section className="gallery__images">
-                {!isLoading ? 
-                allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) 
-                : <p>Loading</p>}
+                {isLoading ? 
+                loadingSpinner()
+                : allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) 
+                }
             </section>
-            <ToastContainer position="top-center" autoClose={5000}
-                hideProgressBar={false} newestOnTop={false} closeOnClickrtl={false}
-                pauseOnFocusLoss draggable pauseOnHover theme="light"
-                transition={Bounce} />        
+            <ToastContainer />        
             </section>
     )
 }
