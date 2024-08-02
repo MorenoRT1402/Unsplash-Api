@@ -17,6 +17,6 @@ const randomPhotosEndpoint = `${endpointsWords.photos}/${endpointsWords.random}`
 export const getRandomPhotosEndpoint = (count = 3) => `${endpointWithAuth(randomPhotosEndpoint)}&count=${count}`;
 
 export const getPhotosByQuery = query => {
-    const endpoint = `${endpointsWords.search}${endpointsWords.photos}`;
+    const endpoint = `${endpointsWords.search}/${endpointsWords.photos}`;
     return `${apiUrl}${endpoint}/?query=${query}&${clientIDPart}`;
 }

@@ -1,14 +1,14 @@
 import { useEffect } from "react"
-import { GalleryImg } from "./GalleryImg"
+import { GalleryImg } from "../GalleryImg"
 import { useDispatch, useSelector } from "react-redux"
-import { getRandomThunk } from "../features/search/searchThunk";
+import { getRandomThunk } from "../../features/search/searchThunk";
+import { imagesPath } from "../../config/paths";
 
 export const HomeGallery = () => {
     const dispatch = useDispatch();
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
     
-    const imagesPath = "../res/images";
     const testImage = {
         id: 'local-test-image',
         urls:{

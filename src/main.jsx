@@ -1,22 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
-import { store } from './features/store.js'
 
 import './styles/css/index.css'
 import './styles/css/styles.css'
-import { Header } from './components/Header.jsx'
-import { MainBody } from './components/MainBody.jsx'
-import { Footer } from './components/Footer.jsx'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { store } from './app/store.js'
+import { routes } from './config/routes.js'
+import { HomeGallery } from './components/pages/HomeGallery.jsx'
+import { FavGallery } from './components/pages/FavGallery.jsx'
+import { Layout } from './components/pages/Layout.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>    
     <Provider store={store}>
-      <Header />
-      <MainBody />
-      <Footer />
+      <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomeGallery />} />
+            <Route path={routes.gallery} element={<FavGallery />} />
+          </Route>
+      </Routes>
     </Provider>
     </BrowserRouter>
   </React.StrictMode>,

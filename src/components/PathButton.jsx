@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom"
 
 // eslint-disable-next-line react/prop-types
-export const PathButton = ({path, children}) => {
+export const PathButton = ({path, buttonText}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -15,6 +15,6 @@ export const PathButton = ({path, children}) => {
 
 
     return (
-    <button onClick={handleClick} className={`path-button ${buttonClass}`}>{children}</button>
+    <button onClick={handleClick} className={`path-button ${buttonClass}`}>{buttonText}</button>
     )
 }
