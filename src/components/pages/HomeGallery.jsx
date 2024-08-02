@@ -8,7 +8,8 @@ export const HomeGallery = () => {
     const dispatch = useDispatch();
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
-    
+    const searchLoading = useSelector(state => state.search.loading);
+
     const testImage = {
         id: 'local-test-image',
         urls:{
@@ -25,20 +26,33 @@ export const HomeGallery = () => {
     }
 
     useEffect(() => {
-        if(searchStatus === 'idle'){
-            dispatch(getRandomThunk());
+        switch (searchStatus) {
+            case 'idle':{
+                dispatch(getRandomThunk());
+                break;
+            }
+            case 'pending':{
+                console.log('pending');
+                break;
+            }
+            case 'fulfilled':{
+                console.log('fulfilled');
+                console.log(allImages);
+                break;
+            }
+            case 'rejected': {
+                console.log('Toast: rejected');
+                break;
+            }
         }
-    }, [dispatch, searchStatus])
-
-    const chargeImages = () => {
-        if(allImages == null) return <GalleryImg img={testImage} icons={icons}></GalleryImg>;
-        return allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>)
-    }
+    }, [searchStatus])
 
     return (
         <section className="gallery --transparent">
             <section className="gallery__images">
-                {chargeImages()}
+                {!searchLoading ? 
+                allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) 
+                : <p>Loading</p>}
             </section>
         </section>
     )
