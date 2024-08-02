@@ -65,10 +65,15 @@ export const FavGallery = () => {
         setSortedImages(sorted);
     }
 
+    const filterByDescription = e => {
+        const filteredItems = allImages.filter(item => item.description.includes(e.target.value));
+        setSortedImages(filteredItems);
+    }
+
     return (
         <section className="gallery">
             <h2>My Photos</h2>
-            <SearchBar className="searchbar" placeholder="Busca en tus imágenes"/>
+            <SearchBar className="searchbar" placeholder="Busca en tus imágenes" onSubmit={filterByDescription}/>
             <select name="order-select" id="order-select" onChange={handleChange}>
                 <option value={sortedOptions.addDate}>Añadido</option>
                 <option value={sortedOptions.width}>Ancho</option>
