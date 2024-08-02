@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { GalleryImg } from "../GalleryImg"
 import { useDispatch, useSelector } from "react-redux"
 import { getRandomThunk } from "../../features/search/searchThunk";
@@ -8,14 +8,9 @@ export const HomeGallery = () => {
     const dispatch = useDispatch();
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
-    const searchLoading = useSelector(state => state.search.loading);
 
-    const testImage = {
-        id: 'local-test-image',
-        urls:{
-            thumb: `${imagesPath}/searchmeme.png`
-        }
-    };
+    const [isLoading, setIsLoading] = useState(false);
+
     const icons = {
         addFav: {
             default: `${imagesPath}/Star.png`,
@@ -32,25 +27,25 @@ export const HomeGallery = () => {
                 break;
             }
             case 'pending':{
-                console.log('pending');
+                setIsLoading(true);
                 break;
             }
             case 'fulfilled':{
-                console.log('fulfilled');
-                console.log(allImages);
+                setIsLoading(false);
                 break;
             }
             case 'rejected': {
+                setIsLoading(true);
                 console.log('Toast: rejected');
                 break;
             }
         }
-    }, [searchStatus])
+    }, [allImages, dispatch, searchStatus])
 
     return (
         <section className="gallery --transparent">
             <section className="gallery__images">
-                {!searchLoading ? 
+                {!isLoading ? 
                 allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) 
                 : <p>Loading</p>}
             </section>

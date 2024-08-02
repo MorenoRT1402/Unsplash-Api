@@ -11,14 +11,14 @@ export const GalleryImg = ({img, icons}) => {
 
     const isInFavourites = favouritesImages.some(favImg => favImg.id === img.id);
 
-    useEffect(() => {
-        setAddToFavImage(getAddToFavImage);
-    }, [favouritesImages])
-
     const getAddToFavImage = () => {
         const addFav = icons.addFav;
         return isInFavourites ? addFav.filled : addFav.default;
     }
+    
+    useEffect(() => {
+        setAddToFavImage(getAddToFavImage);
+    }, [favouritesImages])
 
     const addToFavourites = () => {
         const action = isInFavourites ? remove : add;

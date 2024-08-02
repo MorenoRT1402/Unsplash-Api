@@ -5,14 +5,9 @@ export const PathButton = ({path, buttonText}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleClick = () => {
-        navigate(path);
-    }
+    const handleClick = () => navigate(path);
 
-    const isActive = location.pathname === path;
-
-    const buttonClass = isActive ? '--selected' : '';
-
+    const buttonClass = location.pathname === path ? '--selected' : '';
 
     return (
     <button onClick={handleClick} className={`path-button ${buttonClass}`}>{buttonText}</button>

@@ -4,24 +4,20 @@ import { getByQueryThunk, getRandomThunk } from "./searchThunk";
 const initialState = {
     images: [],
     status: 'idle',
-    loading: false,
     error: null
 }
 
 const pending = state => {
     state.status = 'pending';
-    state.loading = true;
 }
 
 const fulfilled = (state, action) => {
     state.status = 'fulfilled';
-    state.loading = false;
     state.images = action.payload;
 }
 
 const rejected = (state, action) => {
     state.status = 'rejected';
-    state.loading = false;
     state.error = action.error.message;
 }
 

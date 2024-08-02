@@ -14,10 +14,6 @@ export const FavGallery = () => {
         download: `${imagesPath}/download.jpg`
     }
 
-    const chargeImages = () => {
-        return allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>)
-    }
-
     return (
         <section className="gallery">
             <h2>My Photos</h2>
@@ -28,7 +24,7 @@ export const FavGallery = () => {
                 <option value="likes">Likes</option>
             </select>
             <section className="gallery__images">
-                {chargeImages()}
+                { allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) }
             </section>
         </section>
     )

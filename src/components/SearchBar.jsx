@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getByQueryThunk, getRandomThunk } from "../features/search/searchThunk";
 import { routes } from "../config/routes";
+import { imagesPath } from "../config/paths";
 
 export const SearchBar = () => {
     const navigate = useNavigate()
@@ -20,7 +21,7 @@ export const SearchBar = () => {
     return (
         <form className="searchbar" onSubmit={handleSubmit}>
             <button>
-                <img src="../../res/images/icon.png" alt="" />
+                <img src={`${imagesPath}/icon.png`} alt="" />
             </button>
             <input type="text" name="search" placeholder="Busca imágenes en Unsplash" />
         </form>
