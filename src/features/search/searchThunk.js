@@ -28,7 +28,8 @@ export const getByQueryThunk = createAsyncThunk(
     'search/getByQuery',
     async query => {
         try {
-            return getData(getPhotosByQuery(query));
+            const allPages = await getData(getPhotosByQuery(query));
+            return allPages.results;
         }
         catch (error) {
             return null;

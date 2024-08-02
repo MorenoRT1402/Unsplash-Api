@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getRandomThunk } from "../../features/search/searchThunk";
 import { imagesPath } from "../../app/config/paths";
 import { promiseStatus } from "../../app/variables/async";
-import { toast } from "react-toastify";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 export const HomeGallery = () => {
     const dispatch = useDispatch();
@@ -26,6 +26,17 @@ export const HomeGallery = () => {
     useEffect(() => {
         switch (searchStatus) {
             case promiseStatus.idle:{
+                toast('🦄 Wow so easy!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                    });
                 dispatch(getRandomThunk());
                 break;
             }
@@ -52,6 +63,10 @@ export const HomeGallery = () => {
                 allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) 
                 : <p>Loading</p>}
             </section>
-        </section>
+            <ToastContainer position="top-center" autoClose={5000}
+                hideProgressBar={false} newestOnTop={false} closeOnClickrtl={false}
+                pauseOnFocusLoss draggable pauseOnHover theme="light"
+                transition={Bounce} />        
+            </section>
     )
 }

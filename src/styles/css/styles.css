@@ -108,6 +108,19 @@ h1 {
     pointer-events: none;
     opacity: 0.8; }
 
+.Toastify-old {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 12rem;
+  height: 9rem; }
+  .Toastify-old > * {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    background-color: white; }
+
 * {
   box-sizing: border-box;
   margin: 0;
