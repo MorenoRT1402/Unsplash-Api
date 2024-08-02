@@ -4,12 +4,28 @@ const initialState = {
     images: []
 }
 
+const getImageWithDate = (img, dateAdded = new Date()) => {
+    img.importDate = dateAdded;
+    return img;
+}
+
+const addMultiple = (state, data) => {
+    data.map(img => state.images.push(getImageWithDate(img)));
+}
+
 export const favouritesSlice = createSlice({
     name: 'favourites',
     initialState,
     reducers: {
         add: (state, action) => {
-            state.images.push(action.payload);
+            state.images.push(getImageWithDate(action.payload));
+        },
+        addAll: (state, action) => {
+            addMultiple(state, action.payload);
+        },
+        set: (state, action) => {
+            state.images = [];
+            addMultiple(state, action.payload);
         },
         remove: (state, action) => {
             state.images = state.images.filter(img => img.id !== action.payload.id);
@@ -24,4 +40,4 @@ export const favouritesSlice = createSlice({
     }
 })
 
-export const { add, remove, modifyDescription } = favouritesSlice.actions;
+export const { add, addAll, set, remove, modifyDescription } = favouritesSlice.actions;
