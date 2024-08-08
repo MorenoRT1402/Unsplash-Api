@@ -1,8 +1,7 @@
-export const keys = {
-    applicationID : 638155,
-    accesKey : 'ybmKhiKBytLg2gUc5M2LDFkEYCJvpIdJWqrSZRxdFys',
-    secretKey : '3i6g4hKJ9DE5r8lXFYn26TLJhLCDiO8735B4XPVvgsI'
-}
+import 'dotenv/config'
 
-//import .meta.env
-// VITE_
+export const keys = {
+    applicationID: import.meta.env.VITE_APPLICATION_ID,
+    accesKey: import.meta.process.env.VITE_ACCES_KEY,
+    secretKey: import.meta.process.env.VITE_SECRET_KEY,
+}

@@ -2,3 +2,4 @@ src/config/api_config.js
 .sass-cache
 .vscode
 node_modules
+.env
