@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 
 import './styles/css/index.css'
 import './styles/css/styles.css'
-import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { store } from './app/store.js'
 import { routes } from './app/config/routes.js'
