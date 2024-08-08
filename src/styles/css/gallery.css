@@ -25,7 +25,7 @@
       flex-direction: column;
       justify-content: end;
       gap: .6rem;
-      width: 30%; }
+      width: 29%; }
       .gallery__images > article > section {
         display: flex;
         flex-direction: row; }
