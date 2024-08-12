@@ -57,9 +57,14 @@ export const FavGallery = () => {
     }
 
     const filterByDescription = query => {
-        const filteredItems = allImages.filter(item => item.description?.includes(query));
-        setSortedImages(filteredItems);
+        if (query.trim() === '') {
+            setSortedImages(allImages);
+        } else {
+            const filteredItems = allImages.filter(item => item.description?.includes(query));
+            setSortedImages(filteredItems);
+        }
     }
+    
 
     return (
         <section className="gallery">
