@@ -17,9 +17,11 @@
         text-align: center;
     }
 
-    &>select{
-        width: 30%;
+    &__order-select{
+        width: 40%;
+        max-width: 10rem;
         height: 6%;
+        padding: .3rem;
     }
 
     &__images {

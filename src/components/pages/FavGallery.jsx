@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import { GalleryImg } from "../GalleryImg";
 import { imagesPath } from "../../app/config/paths";
-import { useEffect, useState } from "react";
-//import { usePersistence } from "../../hooks/usePersistence";
+import { useState } from "react";
 import { SearchBar } from "../SearchBar";
 
 export const FavGallery = () => {
@@ -25,12 +24,6 @@ export const FavGallery = () => {
         info: `${imagesPath}/Info.jpg`,
         download: `${imagesPath}/download.jpg`
     }
-
-    /*
-    useEffect(() => {
-        setSortedImages(allImages);
-    }, [allImages])
-    */
 
     const handleSelectChange = e => {
         const value = e.target.value;
@@ -70,7 +63,7 @@ export const FavGallery = () => {
         <section className="gallery">
             <h2>My Photos</h2>
             <SearchBar className="searchbar" placeholder="Busca en tus imágenes" filterByDescription={filterByDescription}/>
-            <select name="order-select" id="order-select" onChange={handleSelectChange}>
+            <select className="gallery__order-select" name="order-select" id="order-select" onChange={handleSelectChange}>
                 <option value={sortedOptions.addDate}>Añadido</option>
                 <option value={sortedOptions.width}>Ancho</option>
                 <option value={sortedOptions.height}>Alto</option>

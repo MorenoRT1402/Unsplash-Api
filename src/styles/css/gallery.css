@@ -12,9 +12,11 @@
     background-color: transparent; }
   .gallery > h2 {
     text-align: center; }
-  .gallery > select {
-    width: 30%;
-    height: 6%; }
+  .gallery__order-select {
+    width: 40%;
+    max-width: 10rem;
+    height: 6%;
+    padding: .3rem; }
   .gallery__images {
     display: flex;
     flex-wrap: wrap;
