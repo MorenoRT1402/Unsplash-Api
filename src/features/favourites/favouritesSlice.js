@@ -21,7 +21,7 @@ const updateLocalStorage = state => {
 }
 
 export const favouritesSlice = createSlice({
-    name: 'favourites',
+    name: 'fav',
     initialState,
     reducers: {
         add: (state, action) => {

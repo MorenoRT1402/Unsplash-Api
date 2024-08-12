@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { SearchBar } from "../SearchBar";
 
 export const FavGallery = () => {
-    const allImages = useSelector(state => state.favourites.images);
+    const allImages = useSelector(state => state.fav.images);
 
     const [sortedImages, setSortedImages] = useState(allImages);
 
@@ -26,11 +26,13 @@ export const FavGallery = () => {
         download: `${imagesPath}/download.jpg`
     }
 
+    /*
     useEffect(() => {
         setSortedImages(allImages);
     }, [allImages])
+    */
 
-    const handleChange = e => {
+    const handleSelectChange = e => {
         const value = e.target.value;
         let sorted = [...allImages];
 
@@ -54,16 +56,16 @@ export const FavGallery = () => {
         setSortedImages(sorted);
     }
 
-    const filterByDescription = e => {
-        const filteredItems = allImages.filter(item => item.description.includes(e.target.value));
+    const filterByDescription = query => {
+        const filteredItems = allImages.filter(item => item.description?.includes(query));
         setSortedImages(filteredItems);
     }
 
     return (
         <section className="gallery">
             <h2>My Photos</h2>
-            <SearchBar className="searchbar" placeholder="Busca en tus imágenes" onSubmit={filterByDescription}/>
-            <select name="order-select" id="order-select" onChange={handleChange}>
+            <SearchBar className="searchbar" placeholder="Busca en tus imágenes" filterByDescription={filterByDescription}/>
+            <select name="order-select" id="order-select" onChange={handleSelectChange}>
                 <option value={sortedOptions.addDate}>Añadido</option>
                 <option value={sortedOptions.width}>Ancho</option>
                 <option value={sortedOptions.height}>Alto</option>

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export const GalleryImg = ({img, icons}) => {
     const dispatch = useDispatch();
-    const favouritesImages = useSelector(state => state.favourites.images);
+    const favouritesImages = useSelector(state => state.fav.images);
     const [addToFavImage, setAddToFavImage] = useState(icons.addFav.default);
 
     const isInFavourites = favouritesImages.some(favImg => favImg.id === img.id);
