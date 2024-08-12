@@ -1,20 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { GalleryImg } from "../GalleryImg";
 import { imagesPath } from "../../app/config/paths";
 import { useEffect, useState } from "react";
 //import { usePersistence } from "../../hooks/usePersistence";
-import { set } from "../../features/favourites/favouritesSlice";
-import { getFromLocalStorage, saveInLocalStorage } from "../../app/utils/persistence";
 import { SearchBar } from "../SearchBar";
 
 export const FavGallery = () => {
-    const dispatch = useDispatch();
     const allImages = useSelector(state => state.favourites.images);
 
     const [sortedImages, setSortedImages] = useState(allImages);
-//    const {persistenceData} = usePersistence('images', allImages);
 
-    const imagesKey = 'images';
     const sortedOptions = {
         addDate: 'add-date',
         width: 'width',
@@ -32,13 +27,7 @@ export const FavGallery = () => {
     }
 
     useEffect(() => {
-        dispatch(set(getFromLocalStorage(imagesKey)));
         setSortedImages(allImages);
-    }, [])
-
-    useEffect(() => {
-        saveInLocalStorage(imagesKey, allImages);
-        console.log(getFromLocalStorage('images'));
     }, [allImages])
 
     const handleChange = e => {
