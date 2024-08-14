@@ -44,7 +44,7 @@ export const favouritesSlice = createSlice({
         },
         modifyDescription: (state, action) => {
             const { id, newDescription } = action.payload;
-            const image = state.images.find(img => img.id === id);
+            const image = state.images.find(img => img.id == id);
             if (image) {
                 image.description = newDescription;
             }

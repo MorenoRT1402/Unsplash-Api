@@ -1,13 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector } from "react-redux";
 import { GalleryImg } from "../GalleryImg";
 import { imagesPath } from "../../app/config/paths";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SearchBar } from "../SearchBar";
+import { ShowImgInfo } from "../ShowImgInfo";
 
 export const FavGallery = () => {
     const allImages = useSelector(state => state.fav.images);
 
     const [sortedImages, setSortedImages] = useState(allImages);
+    const [imgInfoDisplayed, setImgInfoDisplayed] = useState(null)
 
     const sortedOptions = {
         addDate: 'add-date',
@@ -15,6 +18,8 @@ export const FavGallery = () => {
         height: 'height',
         likes: 'likes'
     }
+
+    const [sortOption, setSortOption] = useState(sortedOptions.addDate);
 
     const icons = {
         addFav: {
@@ -25,11 +30,10 @@ export const FavGallery = () => {
         download: `${imagesPath}/download.jpg`
     }
 
-    const handleSelectChange = e => {
-        const value = e.target.value;
+    useEffect(() => {
         let sorted = [...allImages];
 
-        switch(value) {
+        switch(sortOption) {
             case sortedOptions.addDate:
                 sorted.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
                 break;
@@ -47,7 +51,7 @@ export const FavGallery = () => {
         }
 
         setSortedImages(sorted);
-    }
+    }, [allImages, sortOption])
 
     const filterByDescription = query => {
         if (query.trim() === '') {
@@ -57,21 +61,26 @@ export const FavGallery = () => {
             setSortedImages(filteredItems);
         }
     }
-    
 
+    const showImgInfo = img => setImgInfoDisplayed(img);
+    const closeInfo = () => setImgInfoDisplayed(null);
+
+    const sortOptionChanged = e => setSortOption(e.target.value);
+    
     return (
         <section className="gallery">
             <h2>My Photos</h2>
             <SearchBar className="searchbar" placeholder="Busca en tus imágenes" filterByDescription={filterByDescription}/>
-            <select className="gallery__order-select" name="order-select" id="order-select" onChange={handleSelectChange}>
+            <select className="gallery__order-select" name="order-select" id="order-select" onChange={sortOptionChanged}>
                 <option value={sortedOptions.addDate}>Añadido</option>
                 <option value={sortedOptions.width}>Ancho</option>
                 <option value={sortedOptions.height}>Alto</option>
                 <option value={sortedOptions.likes}>Likes</option>
             </select>
             <section className="gallery__images">
-                { sortedImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) }
+                { sortedImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) }
             </section>
+            {imgInfoDisplayed != null ? <ShowImgInfo img={imgInfoDisplayed} close={closeInfo} /> : null}
         </section>
     )
 }

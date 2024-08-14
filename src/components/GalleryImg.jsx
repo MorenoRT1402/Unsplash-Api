@@ -4,7 +4,7 @@ import { ImageButton } from "./ImageButton"
 import { add, remove } from "../features/favourites/favouritesSlice";
 import { useEffect, useState } from "react";
 
-export const GalleryImg = ({img, icons}) => {
+export const GalleryImg = ({img, icons, showInfo}) => {
     const dispatch = useDispatch();
     const favouritesImages = useSelector(state => state.fav.images);
     const [addToFavImage, setAddToFavImage] = useState(icons.addFav.default);
@@ -25,20 +25,18 @@ export const GalleryImg = ({img, icons}) => {
         dispatch(action(img));
     }
 
-    const showInfo = () => {
-
-    }
+    const handleInfoClick = () => showInfo(img);
 
     const download = () => {
 
     }
 
     return (
-        <article>
+        <article className="gallery-img">
             <img src={img.urls.thumb} alt="" />
             <section>
                 <ImageButton src={addToFavImage} onClick={addToFavourites}/>
-                <ImageButton src={icons.info}/>
+                <ImageButton src={icons.info} onClick={handleInfoClick}/>
                 <ImageButton src={icons.download}/>
             </section>
         </article>

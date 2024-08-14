@@ -22,21 +22,5 @@
     flex-wrap: wrap;
     gap: .8rem;
     width: 90%; }
-    .gallery__images > article {
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      gap: .6rem;
-      width: 29%; }
-      .gallery__images > article > section {
-        display: flex;
-        flex-direction: row; }
-        .gallery__images > article > section > button {
-          width: 100%;
-          padding: 0;
-          background-color: transparent; }
-          .gallery__images > article > section > button > img {
-            width: 100%;
-            height: 100%; }
 
 /*# sourceMappingURL=gallery.css.map */

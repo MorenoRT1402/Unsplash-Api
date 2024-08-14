@@ -29,29 +29,5 @@
         flex-wrap: wrap;
         gap: .8rem;
         width: 90%;
-
-        &>article{
-            display: flex;
-            flex-direction: column;
-            justify-content: end;
-            gap: .6rem;
-            width: 29%;
-
-            &>section{
-                display: flex;
-                flex-direction: row;
-
-                &>button{
-                    width: 100%;
-                    padding: 0;
-                    background-color: transparent;
-
-                    &>img{
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-            }
-        }
     }
 }

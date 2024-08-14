@@ -7,10 +7,6 @@ $theme-colors: (
 
 $font: "Inria Sans", sans-serif;
 
-* {
-    font-family: $font;
-}
-
 body{
     background-color: map-get($theme-colors, dark);
 }

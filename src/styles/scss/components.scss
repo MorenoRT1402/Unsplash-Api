@@ -22,3 +22,61 @@
         outline: none;
     }
 }
+
+.gallery-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: .6rem;
+    width: 29%;
+
+    &>section{
+        display: flex;
+        flex-direction: row;
+
+        &>button{
+            width: 100%;
+            padding: 0;
+            background-color: transparent;
+
+            &>img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__info {
+        position: fixed;
+        width: 90%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        padding: .2rem;
+
+        &__img{
+            width: 50%;
+        }
+
+        &__form{
+            width: 50%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+
+            &__description {
+                width: 100%;
+                flex: 1;
+                text-align: start;
+                align-content: flex-start;
+            }
+
+            &>button {
+                background-color: map-get($map: $theme-colors, $key: light);
+                color: white;
+            }
+        }
+    }
+}
