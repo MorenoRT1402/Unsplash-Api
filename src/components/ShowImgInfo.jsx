@@ -7,20 +7,33 @@ export const ShowImgInfo = ({ img, close }) => {
     const dispatch = useDispatch();
     const [description, setDescription] = useState(img.description || '');
 
+    const getFormatedDate = () => {
+        const date = img.importDate;
+        return new Date(date).toLocaleString();
+    }
+
+    const handleChange = e => setDescription(e.target.value);
+
     const handleClick = e => {
         e.preventDefault();
         dispatch(modifyDescription({ id: img.id, newDescription: description}));
         close();
     }
 
-    const handleChange = e => setDescription(e.target.value);
-
     return (
-        <dialog className="gallery-img__info">
-            <button onClick={close}>X</button>
-            <img src={img.urls.thumb} alt="" className="gallery-img__info__img" />
-            <form action="" className="gallery-img__info__form">
-                <textarea className="gallery-img__info__form__description" rows="4" value={description} onChange={handleChange} />
+        <dialog className="show-info">
+            <button onClick={close} className="show-info__close">X</button>
+            <div className="show-info__static">
+                <img src={img.urls.thumb} alt="" className="show-info__static__img" />
+                <section className="show-info__static__data">
+                    <h5>{`Import Date: ${getFormatedDate()}`}</h5>
+                    <h5>{`Width: ${img.width}`}</h5>
+                    <h5>{`Height: ${img.height}`}</h5>
+                    <h5>{`Likes: ${img.likes}`}</h5>
+                </section>
+            </div>
+            <form action="" className="show-info__form">
+                <textarea className="show-info__form__description" rows="4" value={description} onChange={handleChange} />
                 <button onClick={handleClick}>Guardar</button>
             </form>
         </dialog>
