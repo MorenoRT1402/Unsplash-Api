@@ -7,7 +7,7 @@ footer {
   margin-top: 3rem;
   padding: .7rem;
   background-color: white;
-  color: #38CD4F; }
+  color: #777c78; }
 
 header {
   width: 100%;
@@ -23,6 +23,33 @@ h1 {
   color: #38CD4F;
   font-size: 16px;
   text-align: left; }
+
+.footer {
+  max-height: 5rem;
+  background-color: #fff;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Arial', sans-serif; }
+  .footer__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0; }
+    .footer__button:hover .footer_icon {
+      transform: scale(1.1); }
+  .footer__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: transform 0.3s ease; }
+  .footer__text {
+    font-size: 0.9rem;
+    color: #aaa; }
+    .footer__text:hover {
+      color: #000000; }
 
 .main-body {
   display: flex;
