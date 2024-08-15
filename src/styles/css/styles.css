@@ -146,10 +146,13 @@ h1 {
     flex-direction: column;
     gap: .25rem; }
     .show-info__form__description {
+      resize: none;
       width: 100%;
       flex: 1;
+      padding: .15rem;
       text-align: start;
-      align-content: flex-start; }
+      align-content: flex-start;
+      background-color: #ceeed9; }
     .show-info__form > button {
       background-color: #38CD4F;
       color: white; }

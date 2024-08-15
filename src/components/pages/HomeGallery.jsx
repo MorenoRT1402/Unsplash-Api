@@ -77,7 +77,7 @@ export const HomeGallery = () => {
             <section className="gallery__images">
                 {isLoading ? 
                 loadingSpinner()
-                : allImages.map(img => <GalleryImg img={img} key={img.id} icons={icons}></GalleryImg>) 
+                : allImages.map(img => <GalleryImg key={img.id} img={img} icons={icons}></GalleryImg>) 
                 }
             </section>
             <ToastContainer />        

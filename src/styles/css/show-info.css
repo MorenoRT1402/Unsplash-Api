@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$theme-colors".
-        on line 62 of scss/show-info.scss
+        on line 67 of scss/show-info.scss
 
-57:             text-align: start;
-58:             align-content: flex-start;
-59:         }
-60: 
-61:         &>button {
-62:             background-color: map-get($map: $theme-colors, $key: light);
-63:             color: white;
+62:             align-content: flex-start;
+63:             background-color: $bg-color;
 64:         }
-65:     }
-66: 
-67: }
+65: 
+66:         &>button {
+67:             background-color: map-get($map: $theme-colors, $key: light);
+68:             color: white;
+69:         }
+70:     }
+71: 
+72: }
 
 Backtrace:
-scss/show-info.scss:62
+scss/show-info.scss:67
 /usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/script/tree/funcall.rb:182:in `perform_arg'
@@ -103,4 +103,4 @@ scss/show-info.scss:62
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$theme-colors\".\A         on line 62 of scss/show-info.scss\A \A 57:             text-align: start;\A 58:             align-content: flex-start;\A 59:         }\A 60: \A 61:         &>button {\A 62:             background-color: map-get($map: $theme-colors, $key: light);\A 63:             color: white;\A 64:         }\A 65:     }\A 66: \A 67: }"; }
+  content: "Error: Undefined variable: \"$theme-colors\".\A         on line 67 of scss/show-info.scss\A \A 62:             align-content: flex-start;\A 63:             background-color: $bg-color;\A 64:         }\A 65: \A 66:         &>button {\A 67:             background-color: map-get($map: $theme-colors, $key: light);\A 68:             color: white;\A 69:         }\A 70:     }\A 71: \A 72: }"; }

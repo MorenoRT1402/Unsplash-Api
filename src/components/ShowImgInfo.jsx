@@ -3,7 +3,7 @@ import {  useState } from "react";
 import { useDispatch } from "react-redux";
 import { modifyDescription } from "../features/favourites/favouritesSlice";
 
-export const ShowImgInfo = ({ img, close }) => {
+export const ShowImgInfo = ({ img, close, editable=false }) => {
     const dispatch = useDispatch();
     const [description, setDescription] = useState(img.description || '');
 
@@ -33,8 +33,10 @@ export const ShowImgInfo = ({ img, close }) => {
                 </section>
             </div>
             <form action="" className="show-info__form">
-                <textarea className="show-info__form__description" rows="4" value={description} onChange={handleChange} />
-                <button onClick={handleClick}>Guardar</button>
+                <textarea className="show-info__form__description" rows="4" value={description} 
+                readOnly={!editable} onChange={handleChange} />
+                {editable ? <button onClick={handleClick}>Guardar</button> : null}
+                
             </form>
         </dialog>
     )

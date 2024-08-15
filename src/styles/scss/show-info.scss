@@ -1,3 +1,5 @@
+$bg-color: rgb(206, 238, 217);
+
 .show-info {
     position: fixed;
     width: 90%;
@@ -37,7 +39,7 @@
             &>*{
                 border: 1px solid;
                 border-radius: 8px;
-                background-color: rgb(206, 238, 217);
+                background-color: $bg-color;
                 padding: .3rem;
                 font-size: .75em;
             }
@@ -52,10 +54,13 @@
         gap: .25rem;
 
         &__description {
+            resize: none;
             width: 100%;
             flex: 1;
+            padding: .15rem;
             text-align: start;
             align-content: flex-start;
+            background-color: $bg-color;
         }
 
         &>button {
