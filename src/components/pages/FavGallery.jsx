@@ -80,7 +80,7 @@ export const FavGallery = () => {
             <section className="gallery__images">
                 { sortedImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) }
             </section>
-            {imgInfoDisplayed != null ? <ShowImgInfo img={imgInfoDisplayed} close={closeInfo} /> : null}
+            {imgInfoDisplayed != null ? <ShowImgInfo img={imgInfoDisplayed} close={closeInfo} editable={true} /> : null}
         </section>
     )
 }

@@ -6,7 +6,7 @@ Error: Undefined variable: "$theme-light".
 4: 
 5: .searchbar{
 6:     width: 90%;
-7:     max-width: 20rem;
+7:     max-width: 25rem;
 8:     border: 1px solid $theme-light;
 9:     border-radius: 24px;
 10:     box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.3);
@@ -76,4 +76,4 @@ scss/components.scss:8
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$theme-light\".\A         on line 8 of scss/components.scss\A \A 3: }\A 4: \A 5: .searchbar{\A 6:     width: 90%;\A 7:     max-width: 20rem;\A 8:     border: 1px solid $theme-light;\A 9:     border-radius: 24px;\A 10:     box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.3);\A 11:     padding: .3rem;\A 12:     display: flex;\A 13:     flex-direction: row;"; }
+  content: "Error: Undefined variable: \"$theme-light\".\A         on line 8 of scss/components.scss\A \A 3: }\A 4: \A 5: .searchbar{\A 6:     width: 90%;\A 7:     max-width: 25rem;\A 8:     border: 1px solid $theme-light;\A 9:     border-radius: 24px;\A 10:     box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.3);\A 11:     padding: .3rem;\A 12:     display: flex;\A 13:     flex-direction: row;"; }

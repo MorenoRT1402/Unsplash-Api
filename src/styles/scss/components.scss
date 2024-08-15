@@ -4,7 +4,7 @@
 
 .searchbar{
     width: 90%;
-    max-width: 20rem;
+    max-width: 25rem;
     border: 1px solid $theme-light;
     border-radius: 24px;
     box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.3);
@@ -29,6 +29,7 @@
     justify-content: end;
     gap: .6rem;
     width: 29%;
+    max-width: 10rem;
 
     &>section{
         display: flex;
@@ -46,4 +47,13 @@
         }
     }
 
+    }
+
+    @media screen and (min-width: 600px){
+        .searchbar {
+            &>input {
+                text-align: center;
+                font-size: large;
+            }
+        }
     }

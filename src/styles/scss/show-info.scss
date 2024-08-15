@@ -3,10 +3,13 @@ $bg-color: rgb(206, 238, 217);
 .show-info {
     position: fixed;
     width: 90%;
-    height: 70%;
+    max-width: 50rem;
+    height: 65%;
+    max-height: 30rem;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    top: 7rem;
     padding: .2rem;
 
     &__close {
@@ -24,10 +27,12 @@ $bg-color: rgb(206, 238, 217);
         flex: 1;
         display: flex;
         flex-direction: row;
+        place-content: space-around;
         gap: .3rem;
 
         &__img{
             width: 100%;
+            max-width: 30rem;
             height: 100%;
         }
 
@@ -40,7 +45,7 @@ $bg-color: rgb(206, 238, 217);
                 border: 1px solid;
                 border-radius: 8px;
                 background-color: $bg-color;
-                padding: .3rem;
+                padding: .2rem;
                 font-size: .75em;
             }
         }
@@ -69,4 +74,10 @@ $bg-color: rgb(206, 238, 217);
         }
     }
 
+}
+
+@media (min-width: 600px){
+    .show-info{
+        height: 30rem;
+    }
 }
