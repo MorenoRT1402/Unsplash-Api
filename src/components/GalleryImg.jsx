@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { ImageButton } from "./ImageButton"
 import { add, remove } from "../features/favourites/favouritesSlice";
 import { useEffect, useState } from "react";
+import { saveAs } from "file-saver";
 
 export const GalleryImg = ({img, icons, showInfo}) => {
     const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const GalleryImg = ({img, icons, showInfo}) => {
     const handleInfoClick = () => showInfo(img);
 
     const download = () => {
-
+        saveAs(img.urls.full, img.id);
     }
 
     return (
@@ -38,7 +39,7 @@ export const GalleryImg = ({img, icons, showInfo}) => {
             <section>
                 <ImageButton src={addToFavImage} onClick={addToFavourites}/>
                 <ImageButton src={icons.info} onClick={handleInfoClick}/>
-                <ImageButton src={icons.download}/>
+                <ImageButton src={icons.download} onClick={download}/>
             </section>
         </article>
     )
