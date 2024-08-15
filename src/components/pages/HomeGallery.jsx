@@ -7,12 +7,14 @@ import { imagesPath } from "../../app/config/paths";
 import { promiseStatus } from "../../app/variables/async";
 import { Flip, toast, ToastContainer } from "react-toastify";
 import { BallTriangle } from 'react-loader-spinner';
+import { ShowImgInfo } from "../ShowImgInfo";
 
 export const HomeGallery = () => {
     const dispatch = useDispatch();
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
     const searchError = useSelector(state => state.search.error);
+    const [imgInfoDisplayed, setImgInfoDisplayed] = useState(null)
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -71,15 +73,18 @@ export const HomeGallery = () => {
         />
     )
 }
+    const showImgInfo = img => setImgInfoDisplayed(img);
+    const closeInfo = () => setImgInfoDisplayed(null);
 
     return (
         <section className="gallery --transparent">
             <section className="gallery__images">
                 {isLoading ? 
                 loadingSpinner()
-                : allImages.map(img => <GalleryImg key={img.id} img={img} icons={icons}></GalleryImg>) 
+                : allImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) 
                 }
             </section>
+            {imgInfoDisplayed != null ? <ShowImgInfo img={imgInfoDisplayed} close={closeInfo} /> : null}
             <ToastContainer />        
             </section>
     )
