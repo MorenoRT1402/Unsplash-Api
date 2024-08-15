@@ -10,6 +10,7 @@ import { routes } from './app/config/routes.js'
 import { HomeGallery } from './components/pages/HomeGallery.jsx'
 import { FavGallery } from './components/pages/FavGallery.jsx'
 import { Layout } from './components/pages/Layout.jsx'
+import { Gallery } from './components/pages/Gallery.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Layout />}>
             <Route index element={<HomeGallery />} />
             <Route path={routes.gallery} element={<FavGallery />} />
+            <Route path={'general-gallery'} element={<Gallery />} />
           </Route>
       </Routes>
     </Provider>
