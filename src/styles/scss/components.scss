@@ -34,10 +34,10 @@
         max-height: 2rem;
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
         gap: .2rem;
 
         &>button{
-            width: 100%;
             padding: 0;
             background-color: transparent;
             border: none;

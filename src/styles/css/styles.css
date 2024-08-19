@@ -97,7 +97,7 @@ h1 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: .8rem; }
+    gap: 5rem; }
 
 @media (min-width: 600px) {
   .gallery__images {
@@ -205,9 +205,9 @@ h1 {
     max-height: 2rem;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     gap: .2rem; }
     .gallery-img > section > button {
-      width: 100%;
       padding: 0;
       background-color: transparent;
       border: none; }

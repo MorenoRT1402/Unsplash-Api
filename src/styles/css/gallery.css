@@ -3,7 +3,7 @@ Error: Undefined variable: "$tablet_min-width".
         on line 34 of scss/gallery.scss
 
 29:         flex-wrap: wrap;
-30:         gap: .8rem;
+30:         gap: 5rem;
 31:     }
 32: }
 33: 
@@ -65,4 +65,4 @@ scss/gallery.scss:34
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$tablet_min-width\".\A         on line 34 of scss/gallery.scss\A \A 29:         flex-wrap: wrap;\A 30:         gap: .8rem;\A 31:     }\A 32: }\A 33: \A 34: @media (min-width: $tablet_min-width){\A 35:     .gallery{\A 36:         &__images{\A 37:             flex-direction: row;\A 38:         }\A 39:     }"; }
+  content: "Error: Undefined variable: \"$tablet_min-width\".\A         on line 34 of scss/gallery.scss\A \A 29:         flex-wrap: wrap;\A 30:         gap: 5rem;\A 31:     }\A 32: }\A 33: \A 34: @media (min-width: $tablet_min-width){\A 35:     .gallery{\A 36:         &__images{\A 37:             flex-direction: row;\A 38:         }\A 39:     }"; }
