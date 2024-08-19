@@ -27,17 +27,13 @@ export const GalleryImg = ({img, icons, showInfo}) => {
         dispatch(action(img));
     }
 
-    const handleInfoClick = () => showInfo(img);
-
-    const download = () => saveAs(img.urls.full, img.id);
-
     return (
         <article className="gallery-img">
             <img src={img.urls.thumb} alt="" />
             <section>
                 <ImageButton src={addToFavImage} onClick={addToFavourites}/>
-                <ImageButton src={icons.info} onClick={handleInfoClick}/>
-                <ImageButton src={icons.download} onClick={download}/>
+                <ImageButton src={icons.info} onClick={() => showInfo(img)}/>
+                <ImageButton src={icons.download} onClick={() => saveAs(img.urls.full, img.id)}/>
             </section>
         </article>
     )

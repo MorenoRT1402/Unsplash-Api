@@ -7,11 +7,6 @@ import { SearchBar } from "../SearchBar";
 import { ShowImgInfo } from "../ShowImgInfo";
 
 export const FavGallery = () => {
-    const allImages = useSelector(state => state.fav.images);
-
-    const [sortedImages, setSortedImages] = useState(allImages);
-    const [imgInfoDisplayed, setImgInfoDisplayed] = useState(null)
-
     const sortedOptions = {
         addDate: 'add-date',
         width: 'width',
@@ -19,9 +14,14 @@ export const FavGallery = () => {
         likes: 'likes'
     }
 
+    const allImages = useSelector(state => state.fav.images);
+
+    const [sortedImages, setSortedImages] = useState(allImages);
+    const [imgInfoDisplayed, setImgInfoDisplayed] = useState(null)
+
     const [sortOption, setSortOption] = useState(sortedOptions.addDate);
 
-    const icons = {
+    const icons = { //These with jpg for transparency issues
         addFav: {
             default: `${imagesPath}/Star.jpg`,
             filled: `${imagesPath}/star_filled.jpg`
@@ -80,7 +80,7 @@ export const FavGallery = () => {
             <section className="gallery__images">
                 { sortedImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) }
             </section>
-            {imgInfoDisplayed != null ? <ShowImgInfo img={imgInfoDisplayed} close={closeInfo} editable={true} /> : null}
+            {imgInfoDisplayed ? <ShowImgInfo img={imgInfoDisplayed} close={closeInfo} editable={true} /> : null}
         </section>
     )
 }

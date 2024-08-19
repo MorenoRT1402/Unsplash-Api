@@ -18,7 +18,7 @@ export const HomeGallery = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const icons = {
+    const icons = { //These with png
         addFav: {
             default: `${imagesPath}/Star.png`,
             filled: `${imagesPath}/star_filled.png`
@@ -59,20 +59,6 @@ export const HomeGallery = () => {
         }
     }, [allImages, dispatch, searchStatus])
 
- const loadingSpinner = () => {
-    return (
-        <BallTriangle className="loading-spinner"
-            height={100}
-            width={100}
-            radius={5}
-            color="#4fa94d"
-            ariaLabel="ball-triangle-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-        />
-    )
-}
     const showImgInfo = img => setImgInfoDisplayed(img);
     const closeInfo = () => setImgInfoDisplayed(null);
 
@@ -80,7 +66,16 @@ export const HomeGallery = () => {
         <section className="gallery --transparent">
             <section className="gallery__images">
                 {isLoading ? 
-                loadingSpinner()
+                <BallTriangle className="loading-spinner"
+                height={100}
+                width={100}
+                radius={5}
+                color="#4fa94d"
+                ariaLabel="ball-triangle-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                />
                 : allImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) 
                 }
             </section>
