@@ -8,10 +8,8 @@ export const Header = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-    const handleSubmit = event => {
-        event.preventDefault();
+    const handleSubmit = query => {
         navigate(routes.home);
-        const query = event.target.search.value;
         if(query.length > 0)
             dispatch(getByQueryThunk(query));
         else
@@ -21,7 +19,7 @@ export const Header = () => {
     return (
     <header>
         <h1>OXYGEN UNSPLASH</h1>
-        <SearchBar placeholder={'Busca imágenes en Unsplash'} onSubmit={handleSubmit} />
+        <SearchBar placeholder={'Busca imágenes en Unsplash'} filterByDescription={handleSubmit} />
     </header>
     )
 }
