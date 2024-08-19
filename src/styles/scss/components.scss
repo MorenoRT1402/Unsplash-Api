@@ -18,6 +18,7 @@
     }
 
     &>input{
+        width: 100%;
         border: 0;
         outline: none;
     }
@@ -52,7 +53,6 @@
     @media screen and (min-width: 600px){
         .searchbar {
             &>input {
-                text-align: center;
                 font-size: large;
             }
         }

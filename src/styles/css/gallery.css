@@ -15,7 +15,6 @@
   .gallery__order-select {
     width: 40%;
     max-width: 10rem;
-    height: 6%;
     padding: .3rem; }
   .gallery__images {
     display: flex;
