@@ -29,17 +29,18 @@
     flex-direction: column;
     justify-content: end;
     gap: .6rem;
-    width: 29%;
-    max-width: 10rem;
 
     &>section{
+        max-height: 2rem;
         display: flex;
         flex-direction: row;
+        gap: .2rem;
 
         &>button{
             width: 100%;
             padding: 0;
             background-color: transparent;
+            border: none;
 
             &>img{
                 width: 100%;

@@ -7,6 +7,8 @@ $theme-colors: (
 
 $font: "Inria Sans", sans-serif;
 
+$tablet_min-width: 600px;
+
 body{
     background-color: map-get($theme-colors, dark);
 }

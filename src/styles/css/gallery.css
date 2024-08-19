@@ -1,25 +1,68 @@
-.gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-  height: 100%;
-  gap: 1rem;
-  padding: .5rem;
-  border-radius: 8px;
-  background-color: white; }
-  .gallery.--transparent {
-    background-color: transparent; }
-  .gallery > h2 {
-    text-align: center; }
-  .gallery__order-select {
-    width: 40%;
-    max-width: 10rem;
-    padding: .3rem; }
-  .gallery__images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .8rem;
-    width: 90%; }
+/*
+Error: Undefined variable: "$tablet_min-width".
+        on line 34 of scss/gallery.scss
 
-/*# sourceMappingURL=gallery.css.map */
+29:         flex-wrap: wrap;
+30:         gap: .8rem;
+31:     }
+32: }
+33: 
+34: @media (min-width: $tablet_min-width){
+35:     .gallery{
+36:         &__images{
+37:             flex-direction: row;
+38:         }
+39:     }
+
+Backtrace:
+scss/gallery.scss:34
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:551:in `block in run_interp_no_strip'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:549:in `map'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:549:in `run_interp_no_strip'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:556:in `run_interp'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:521:in `visit_media'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:468:in `update_stylesheet'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:449:in `on_file_changed'
+/usr/share/rubygems-integration/all/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/config.rb:28:in `call'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/processor.rb:117:in `block in _process_changes'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/thread.rb:26:in `rescue_and_log'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/processor.rb:116:in `_process_changes'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/processor.rb:25:in `block in loop_for'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/processor.rb:20:in `loop'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/processor.rb:20:in `loop_for'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/loop.rb:85:in `_process_changes'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/event/loop.rb:51:in `block in start'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/thread.rb:26:in `rescue_and_log'
+/usr/share/rubygems-integration/all/gems/listen-3.7.0/lib/listen/thread.rb:18:in `block in new'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$tablet_min-width\".\A         on line 34 of scss/gallery.scss\A \A 29:         flex-wrap: wrap;\A 30:         gap: .8rem;\A 31:     }\A 32: }\A 33: \A 34: @media (min-width: $tablet_min-width){\A 35:     .gallery{\A 36:         &__images{\A 37:             flex-direction: row;\A 38:         }\A 39:     }"; }

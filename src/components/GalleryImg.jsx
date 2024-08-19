@@ -29,9 +29,7 @@ export const GalleryImg = ({img, icons, showInfo}) => {
 
     const handleInfoClick = () => showInfo(img);
 
-    const download = () => {
-        saveAs(img.urls.full, img.id);
-    }
+    const download = () => saveAs(img.urls.full, img.id);
 
     return (
         <article className="gallery-img">

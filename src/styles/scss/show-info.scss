@@ -4,8 +4,6 @@ $bg-color: rgb(206, 238, 217);
     position: fixed;
     width: 90%;
     max-width: 50rem;
-    height: 65%;
-    max-height: 30rem;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -76,7 +74,7 @@ $bg-color: rgb(206, 238, 217);
 
 }
 
-@media (min-width: 600px){
+@media (min-width: $tablet_min-width){
     .show-info{
         height: 30rem;
     }

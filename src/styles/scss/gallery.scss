@@ -25,8 +25,16 @@
 
     &__images {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         gap: .8rem;
-        width: 90%;
+    }
+}
+
+@media (min-width: $tablet_min-width){
+    .gallery{
+        &__images{
+            flex-direction: row;
+        }
     }
 }
