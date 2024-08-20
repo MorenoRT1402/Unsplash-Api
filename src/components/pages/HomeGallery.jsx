@@ -14,7 +14,7 @@ export const HomeGallery = () => {
     const allImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
     const searchError = useSelector(state => state.search.error);
-    const [imgInfoDisplayed, setImgInfoDisplayed] = useState(null)
+    const [imgInfoDisplayed, setImgInfoDisplayed] = useState(null);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -59,8 +59,10 @@ export const HomeGallery = () => {
         }
     }, [allImages, dispatch, searchStatus])
 
-    const showImgInfo = img => setImgInfoDisplayed(img);
-    const closeInfo = () => setImgInfoDisplayed(null);
+    const loadMore = e => {
+        e.preventDefault();
+        dispatch(getRandomThunk());
+    }
 
     return (
         <section className="gallery --transparent">
@@ -76,10 +78,15 @@ export const HomeGallery = () => {
                 wrapperClass=""
                 visible={true}
                 />
-                : allImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) 
+                : allImages.map(img => <GalleryImg key={img.id} 
+                    img={img} icons={icons} 
+                    showInfo={img => setImgInfoDisplayed(img)} />)
                 }
             </section>
-            {imgInfoDisplayed != null ? <ShowImgInfo img={imgInfoDisplayed} close={closeInfo} /> : null}
+            <button onClick={loadMore} disabled={isLoading}>Load more</button>
+            {imgInfoDisplayed != null ? 
+            <ShowImgInfo img={imgInfoDisplayed} close={() => setImgInfoDisplayed(null)} /> 
+            : null}
             <ToastContainer />        
             </section>
     )

@@ -33,10 +33,9 @@ export const ShowImgInfo = ({ img, close, editable=false }) => {
                 </section>
             </div>
             <form action="" className="show-info__form">
-                <textarea className="show-info__form__description" rows="4" value={description} 
+                <textarea id='text' className="show-info__form__description" rows="4" value={description} 
                 readOnly={!editable} onChange={handleChange} />
                 {editable ? <button onClick={handleClick}>Guardar</button> : null}
-                
             </form>
         </dialog>
     )

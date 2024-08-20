@@ -10,8 +10,9 @@ const initialState = {
 
 const fulfilled = (state, action) => {
     state.status = promiseStatus.fulfilled;
-    state.images = action.payload == null ? [] : action.payload
-}
+    state.images = action.payload == null ? state.images : [...state.images, ...action.payload];
+    // state.images = action.payload == null ? state.images: action.payload;
+};
 
 const rejected = (state, action) => {
     state.status = promiseStatus.rejected;
@@ -27,22 +28,22 @@ export const searchSlice = createSlice({
         builder.addCase(getRandomThunk.pending, state => {
             state.status = promiseStatus.pending;
         })
-        .addCase(getRandomThunk.fulfilled, (state, action) => {
-            fulfilled(state, action);
-        })
-        .addCase(getRandomThunk.rejected, (state, action) => {
-            rejected(state, action);
-        })
+            .addCase(getRandomThunk.fulfilled, (state, action) => {
+                fulfilled(state, action);
+            })
+            .addCase(getRandomThunk.rejected, (state, action) => {
+                rejected(state, action);
+            })
 
         builder.addCase(getByQueryThunk.pending, state => {
             state.status = promiseStatus.pending;
         })
-        .addCase(getByQueryThunk.fulfilled, (state, action) => {
-            fulfilled(state,action);
-        })
-        .addCase(getByQueryThunk.rejected, (state, action) => {
-            rejected(state, action);
-        })
+            .addCase(getByQueryThunk.fulfilled, (state, action) => {
+                fulfilled(state, action);
+            })
+            .addCase(getByQueryThunk.rejected, (state, action) => {
+                rejected(state, action);
+            })
 
     },
 })

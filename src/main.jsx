@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 
@@ -7,12 +7,12 @@ import './styles/css/styles.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { store } from './app/store.js'
 import { routes } from './app/config/routes.js'
-import { HomeGallery } from './components/pages/HomeGallery.jsx'
 import { FavGallery } from './components/pages/FavGallery.jsx'
+import { HomeGallery } from './components/pages/HomeGallery.jsx'
 import { Layout } from './components/pages/Layout.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+//  <React.StrictMode>
     <BrowserRouter>    
     <Provider store={store}>
       <Routes>
@@ -23,5 +23,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </Routes>
     </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
+//  </React.StrictMode>,
 )
