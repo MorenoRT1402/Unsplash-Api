@@ -71,12 +71,15 @@ export const FavGallery = () => {
         <section className="gallery">
             <h2>My Photos</h2>
             <SearchBar className="searchbar" placeholder="Busca en tus imágenes" filterByDescription={filterByDescription}/>
-            <select className="gallery__order-select" name="order-select" id="order-select" onChange={sortOptionChanged}>
-                <option value={sortedOptions.addDate}>Añadido</option>
-                <option value={sortedOptions.width}>Ancho</option>
-                <option value={sortedOptions.height}>Alto</option>
-                <option value={sortedOptions.likes}>Likes</option>
-            </select>
+            <section className="gallery__order">
+                <h4 className="gallery__order__label">Sort by: </h4>
+                <select className="gallery__order-select" name="order-select" id="order-select" onChange={sortOptionChanged}>
+                    <option value={sortedOptions.addDate}>Añadido</option>
+                    <option value={sortedOptions.width}>Ancho</option>
+                    <option value={sortedOptions.height}>Alto</option>
+                    <option value={sortedOptions.likes}>Likes</option>
+                </select>
+            </section>
             <section className="gallery__images">
                 { sortedImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) }
             </section>
