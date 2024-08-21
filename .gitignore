@@ -4,3 +4,4 @@ src/config/api_config.js
 node_modules
 .vite
 .env
+dist

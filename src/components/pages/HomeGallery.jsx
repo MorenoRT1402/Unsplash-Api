@@ -62,6 +62,7 @@ export const HomeGallery = () => {
     const loadMore = e => {
         e.preventDefault();
         dispatch(getRandomThunk());
+        scrollTo({bottom: 0, behavior: 'smooth'});
     }
 
     return (

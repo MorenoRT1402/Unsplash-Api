@@ -5,6 +5,7 @@ import { imagesPath } from "../../app/config/paths";
 import { useEffect, useState } from "react";
 import { SearchBar } from "../SearchBar";
 import { ShowImgInfo } from "../ShowImgInfo";
+import Select from 'react-select'
 
 export const FavGallery = () => {
     const sortedOptions = {
@@ -13,6 +14,13 @@ export const FavGallery = () => {
         height: 'height',
         likes: 'likes'
     }
+
+    const options = [
+        { value: sortedOptions.addDate, label: 'Añadido' },
+        { value: sortedOptions.width, label: 'Ancho' },
+        { value: sortedOptions.height, label: 'Alto' },
+        { value: sortedOptions.likes, label: 'Likes' },
+    ]
 
     const allImages = useSelector(state => state.fav.images);
 
@@ -65,7 +73,7 @@ export const FavGallery = () => {
     const showImgInfo = img => setImgInfoDisplayed(img);
     const closeInfo = () => setImgInfoDisplayed(null);
 
-    const sortOptionChanged = e => setSortOption(e.target.value);
+    const sortOptionChanged = ({value}) => setSortOption(value);
     
     return (
         <section className="gallery">
@@ -73,12 +81,8 @@ export const FavGallery = () => {
             <SearchBar className="searchbar" placeholder="Busca en tus imágenes" filterByDescription={filterByDescription}/>
             <section className="gallery__order">
                 <h4 className="gallery__order__label">Sort by: </h4>
-                <select className="gallery__order-select" name="order-select" id="order-select" onChange={sortOptionChanged}>
-                    <option value={sortedOptions.addDate}>Añadido</option>
-                    <option value={sortedOptions.width}>Ancho</option>
-                    <option value={sortedOptions.height}>Alto</option>
-                    <option value={sortedOptions.likes}>Likes</option>
-                </select>
+                <Select className="gallery__order-select" name="order-select" 
+                id="order-select" onChange={sortOptionChanged} options={options} />
             </section>
             <section className="gallery__images">
                 { sortedImages.map(img => <GalleryImg key={img.id} img={img} icons={icons} showInfo={showImgInfo}></GalleryImg>) }

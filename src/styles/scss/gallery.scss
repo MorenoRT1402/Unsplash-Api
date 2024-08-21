@@ -21,6 +21,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: .5rem;
 
         &__label {
@@ -29,8 +30,7 @@
     }
 
     &__order-select{
-        width: 6rem;
-        max-width: 10rem;
+        width: 8rem;
         padding: .3rem;
     }
 

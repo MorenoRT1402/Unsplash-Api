@@ -93,12 +93,12 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: .5rem; }
     .gallery__order__label {
       font-weight: normal; }
   .gallery__order-select {
-    width: 6rem;
-    max-width: 10rem;
+    width: 8rem;
     padding: .3rem; }
   .gallery__images {
     display: flex;
