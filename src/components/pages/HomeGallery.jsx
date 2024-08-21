@@ -11,10 +11,11 @@ import { ShowImgInfo } from "../ShowImgInfo";
 
 export const HomeGallery = () => {
     const dispatch = useDispatch();
-    const allImages = useSelector(state => state.search.images);
+    const randomImages = useSelector(state => state.search.images);
     const searchStatus = useSelector(state => state.search.status);
     const searchError = useSelector(state => state.search.error);
     const [imgInfoDisplayed, setImgInfoDisplayed] = useState(null);
+    const [displayedImages, setDisplayedImages] = useState(randomImages);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -57,7 +58,12 @@ export const HomeGallery = () => {
                 break;
             }
         }
-    }, [allImages, dispatch, searchStatus])
+    }, [randomImages, dispatch, searchStatus])
+
+    useEffect(() => {
+        // setDisplayedImages([...displayedImages, ...randomImages]);
+        setDisplayedImages(randomImages);
+    }, [randomImages])
 
     const loadMore = e => {
         e.preventDefault();
@@ -79,7 +85,7 @@ export const HomeGallery = () => {
                 wrapperClass=""
                 visible={true}
                 />
-                : allImages.map(img => <GalleryImg key={img.id} 
+                : displayedImages.map(img => <GalleryImg key={img.id} 
                     img={img} icons={icons} 
                     showInfo={img => setImgInfoDisplayed(img)} />)
                 }

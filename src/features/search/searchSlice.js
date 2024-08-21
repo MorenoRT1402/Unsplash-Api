@@ -10,7 +10,7 @@ const initialState = {
 
 const fulfilled = (state, action) => {
     state.status = promiseStatus.fulfilled;
-    state.images = action.payload == null ? state.images : [...state.images, ...action.payload];
+    state.images = action.payload == null ? state.images : action.payload;
 };
 
 const rejected = (state, action) => {
