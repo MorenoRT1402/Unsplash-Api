@@ -21,6 +21,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Setup .env variables
+      run: |
+        echo "VITE_APPLICATION_ID=${{ secrets.VITE_APPLICATION_ID }}" >> .env
+        echo "VITE_ACCES_KEY=${{ secrets.VITE_ACCES_KEY }}" >> .env
+        echo "VITE_SECRET_KEY=${{ secrets.VITE_SECRET_KEY }}" >> .env
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
